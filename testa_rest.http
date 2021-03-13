@@ -1,0 +1,246 @@
+@hostname = localhost
+@api_versao = v1 
+@porta = 8000
+@protocolo = http
+@base_url = {{protocolo}}://{{hostname}}:{{porta}}
+@api_url = {{base_url}}/api/{{api_versao}}
+@auth_url =  {{base_url}}/oauth2
+
+###
+GET {{base_url}}
+
+###
+GET {{api_url}}/estados
+
+###
+GET {{api_url}}/estados/2
+
+###
+GET {{api_url}}/cidades/1
+
+###
+GET {{api_url}}/cidades
+
+###
+GET {{api_url}}/cidades?estado_id=1
+
+###
+GET {{api_url}}/pacientedoencas
+
+###
+GET {{api_url}}/pacientedoencas?quant=15
+
+
+###
+GET {{api_url}}/doencas/1
+
+###
+GET {{api_url}}/doencas
+
+###
+GET {{api_url}}/doencas?relatorio=pacientes&quant=5
+
+###
+GET {{api_url}}/doencas/1
+
+###
+GET {{api_url}}/pacientes/1/doencas HTTP/1.1
+
+###
+POST {{api_url}}/pacientes/1/doencas HTTP/1.1
+content-type: application/json
+
+{   
+    "paciente_id": 2,
+    "doenca_id": 5,
+    "medico_id": 2,
+    "data_diagnostico": "2021-02-27 12:52:11",
+    "data_inicio_sintomas": "2021-02-27 12:52:11"
+}
+
+
+
+###
+GET {{api_url}}/pacientes
+
+###
+GET {{api_url}}/pacientes/semdoenca
+
+###
+GET {{api_url}}/pacientes?nomePaciente=&pacientes=todosPacientes&doencaPaciente=1&cpfPacient
+
+###
+GET {{api_url}}/pacientes/1
+
+###
+GET {{api_url}}/pacientes/2/doencas
+
+###
+GET {{api_url}}/pacientes/1/acompanhamentos
+
+###
+POST {{api_url}}/pacientes HTTP/1.1
+content-type: application/json
+
+{
+    "sexo_id" : 1,
+    "endereco_id" : 1,
+    "nome" : "edimar",
+    "email" : "edimarfffdgffff@gmail.com",
+    "email_verified_at" : "2021-02-27 12:52:11",
+    "cpf" : "634589633ff648007",
+    "password" : "50507737334",
+    "telefone" : "78788878787",
+    "data_nascimento" : "1998-02-27",
+    "profissao" : "Programador PHP - Laravel",
+    "cep" : "75503305",
+    "cidade_id" : 1,
+    "bairro" : "Samanbaia",
+    "logradouro" : "Avenida 5 com a dorgival dantas",
+    "numero" : "5555"
+}
+
+###
+PUT {{api_url}}/pacientes/1 HTTP/1.1
+content-type: application/json
+
+{
+    "sexo_id" : 1,
+    "nome" : "edimarttttrrrr",
+    "email" : "edimarffff@gmail.com",
+    "cpf" : "6345896648007",
+    "cidade_id" : 1,
+    "estado_id" : 1,
+    "telefone" : "78788878787",
+    "data_nascimento" : "1998-02-27 12:52:11",
+    "profissao" : "Programador PHP - Laravel",
+    "cep" : "75503305",
+    "bairro" : "Samanbaia",
+    "logradouro" : "Avenida 5 com a dorgival dantas",
+    "numero" : "5555"
+}
+
+
+
+
+
+###
+POST {{api_url}}/medicos HTTP/1.1
+content-type: application/json
+
+{   
+    "nome" : "testemedico",
+    "email" : "testemedico@gmail.com",
+    "email_verified_at" : "2021-02-27 12:52:11",
+    "cpf" : "80028922",
+    "sexo_id" : 1,
+    "password" : "123456",
+    "telefone" : "80028922",
+    "cep" : "63458948007",
+    "cidade_id" : 1,
+    "bairro" : "bairro teste",
+    "logradouro" : "dorgival dantas",
+    "numero" : "sn",
+    "perfil_id" : 1,
+    "crm" : "3333333",
+    "especialidade_id" : 1,
+    "estabelecimento_saude_id" : 1
+}
+
+###
+GET {{api_url}}/medicos/1
+
+
+### Login de Médico 
+POST {{api_url}}/user/login HTTP/1.1
+content-type: application/json
+
+{   
+    "cpf" : "99405188038",
+    "password" : "secret"
+}
+
+### Login de Paciente 
+POST {{api_url}}/user/login HTTP/1.1
+content-type: application/json
+
+{   
+    "cpf" : "29678222051",
+    "password" : "secret"
+}
+
+###
+GET {{api_url}}/user/verlogin HTTP/1.1
+
+###
+GET {{api_url}}/user/logout HTTP/1.1
+
+###
+GET {{api_url}}/sexos
+
+###
+GET {{api_url}}/especialidades
+
+###
+GET {{api_url}}/estabelecimentosaudes
+
+###
+POST {{api_url}}/estabelecimentosaudes
+content-type: application/json
+
+{   
+    "nome" : "Controle de epidemias"
+}
+###
+
+GET {{api_url}}/doencas
+###
+POST {{api_url}}/doencas
+content-type: application/json
+
+{   
+    "nome" : "Madalaptive Daydreaming"
+}
+###
+PUT {{api_url}}/doencas/11
+content-type: application/json
+
+{   
+    "nome" : "Madalaptive Daydreaming PUT"
+}
+###
+DELETE {{api_url}}/doencas/12
+
+###
+GET {{api_url}}/pacientedoencas
+
+###
+GET {{api_url}}/medicos/medicoscount
+
+###pacientescountbyuf
+GET {{api_url}}/pacientes/pacientescount
+
+###
+GET {{api_url}}/pacientes/pacientescountbyuf
+
+###
+GET {{api_url}}/acompanhamentos/acompanhamentosCount
+
+###
+GET {{api_url}}/acompanhamentos?caso_id=1
+
+###
+GET {{api_url}}/acompanhamentos/1
+
+###
+POST {{api_url}}/acompanhamentos
+content-type: application/json
+
+{
+    "sintomasIdentificados": "Dor de cabeça",
+    "orientacoesRealizadas": "Dormir mais",
+    "dataAcompanhamento": "2021-03-11",
+    "dataProximaConsulta": "2021-03-12",
+    "idMedico": 1,
+    "idCaso": 1
+}
